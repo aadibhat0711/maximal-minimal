@@ -1,49 +1,78 @@
-# maximal-minimal
+# Extremal Elements in Partially Ordered Sets
 
-A short, friendly README for the "maximal-minimal" project.
+This repo contains examples of **extremal elements**:
+1. Maximal  
+2. Minimal  
+3. Greatest  
+4. Least  
+5. Upper Bound  
+6. Lower Bound  
++ their relationships (combos)
 
-## Overview
+---
+## Example 1: Divisibility on {1,2,3,6}
 
-maximal-minimal is a repository for exploring the balance between maximal and minimal design/implementation approaches. This repository contains example code and notes that compare larger feature-rich solutions with smaller, minimal implementations. Use this project as a learning resource, reference, or starting point for experiments.
+- **Maximal**: {2, 3, 6}  
+- **Minimal**: {1, 2, 3}  
+- **Greatest**: 6  
+- **Least**: 1  
+- **Upper bound of {2,3}**: 6  
+- **Lower bound of {2,3}**: 1  
 
-## What you'll find here
-
-- Example implementations demonstrating minimal and maximal approaches.
-- Notes and rationale explaining trade-offs.
-- Small scripts and utilities to compare behavior and performance.
-
-## Getting started
-
-1. Clone the repository:
-
-   git clone https://github.com/aadibhat0711/maximal-minimal.git
-
-2. Inspect the project structure and open the files relevant to your language of interest.
-
-3. Run any included scripts or examples (see individual folders for instructions).
-
-## Development
-
-- Create a new branch for your work: git checkout -b my-feature
-- Add meaningful commits and open a pull request when ready.
-- Keep changes focused: small, reviewable PRs are preferred.
-
-## Contributing
-
-Contributions are welcome! Please:
-
-- Open an issue to discuss larger changes or proposals.
-- Submit pull requests for bug fixes, new examples, and documentation improvements.
-- Follow the repository's coding style and add tests when applicable.
-
-## License
-
-Specify your license here (e.g., MIT). If you don't want to add a license yet, replace this section with your preferred license details.
-
-## Contact
-
-Maintainer: @aadibhat0711
+### Hasse Diagram
+```mermaid
+graph TB
+    1 --> 2
+    1 --> 3
+    2 --> 6
+    3 --> 6
+```
 
 ---
 
-If you want more specific content (project goals, language list, setup commands, badges), tell me what to include and I will update the README.
+## Example 2: Subset Inclusion on { {1}, {2}, {1,2} }
+
+- **Maximal**: {1,2}  
+- **Minimal**: {1}, {2}  
+- **Greatest**: {1,2}  
+- **Least**: None  
+
+### Hasse Diagram
+
+```mermaid
+graph TB
+  A["{1}"]
+  B["{2}"]
+  C["{1,2}"]
+
+  A --> C
+  B --> C
+'''
+
+---
+
+
+## Example 3: Natural Numbers (ℕ, ≤)
+
+- **Maximal**: None  
+- **Minimal**: 0  
+- **Greatest**: None  
+- **Least**: 0  
+- **Upper bound of {2,5}**: any n ≥ 5  
+- **Lower bound of {2,5}**: any n ≤ 2  
+
+### ASCII Diagram
+```
+0 < 1 < 2 < 3 < 4 < 5 < ...
+```
+
+---
+
+## Combos (Relationships)
+
+- If **greatest element** exists → it is **maximal**.  
+- If **least element** exists → it is **minimal**.  
+- A poset can have **many maximal/minimal**, but **at most one greatest/least**.  
+- Every **greatest = upper bound**, every **least = lower bound**.  
+- **Supremum (LUB)** = least among upper bounds.  
+- **Infimum (GLB)** = greatest among lower bounds.  
